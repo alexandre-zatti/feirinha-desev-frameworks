@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  server:
+    image: zatti/feirinha-server
+    container_name: feirinha-server
+    build:
+      context: ./server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server:/server
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
