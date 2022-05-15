@@ -1,0 +1,14 @@
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    username = models.CharField(max_length=255)
+    matricula = models.IntegerField(unique=True)
+    feirante = models.BooleanField(default=False)
+    qrcode = models.CharField(max_length=10000, null=True)
+    password = None
+    email = None
+
+    USERNAME_FIELD = 'matricula'
+    REQUIRED_FIELDS = []

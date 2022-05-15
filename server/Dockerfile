@@ -1,11 +1,21 @@
-FROM python:3.8
+FROM python:3.9.6-alpine
 
+WORKDIR /usr/src/server
+
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir /server
+RUN apk update \
+    && apk add postgresql-dev gcc python3-dev musl-dev
 
-WORKDIR /server
+RUN pip3 install --upgrade pip
+COPY ./requirements.txt .
+RUN pip3 install -r requirements.txt
 
-COPY ./ /
+COPY ./entrypoint.sh .
+RUN sed -i 's/\r$//g' /usr/src/server/entrypoint.sh
+RUN chmod +x /usr/src/server/entrypoint.sh
 
-RUN pip install -r /requirements.txt
+COPY . .
+
+ENTRYPOINT ["sh", "/usr/src/server/entrypoint.sh"]

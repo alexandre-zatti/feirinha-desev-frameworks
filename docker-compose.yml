@@ -1,14 +1,30 @@
-version: "3"
+version: '3.8'
 
 services:
   server:
+    build: ./server
     image: zatti/feirinha-server
     container_name: feirinha-server
-    build:
-      context: ./server
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./server/:/usr/src/server/
     ports:
       - "8000:8000"
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+  db:
+    image: postgres:13.0-alpine
+    container_name: feirinha-db
+    ports:
+      - "5432:5432"
     volumes:
-      - ./server:/server
-    command: >
-      sh -c "python manage.py runserver 0.0.0.0:8000"
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=rootroot
+      - POSTGRES_DB=feirinhagti
+
+volumes:
+  postgres_data:
