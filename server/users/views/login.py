@@ -9,7 +9,9 @@ from ..serializers import LoginSerializer
 
 
 class LoginView(APIView):
-    def post(self, request):
+
+    @staticmethod
+    def post(request):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 

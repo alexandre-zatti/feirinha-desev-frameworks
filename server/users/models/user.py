@@ -7,6 +7,7 @@ class User(AbstractUser):
     matricula = models.IntegerField(unique=True)
     feirante = models.BooleanField(default=False)
     qrcode = models.CharField(max_length=10000, null=True)
+    saldo = models.FloatField(default=0.00)
     password = None
     email = None
 
