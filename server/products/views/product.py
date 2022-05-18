@@ -1,3 +1,4 @@
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import UpdateModelMixin
@@ -15,6 +16,15 @@ class ProductView(GenericAPIView, UpdateModelMixin):
     serializer_class = ProductSerializer
 
     @staticmethod
+    @swagger_auto_schema(
+        request_body=ProductSerializer,
+        responses={
+            '200': ProductSerializer,
+            '403': 'You do not have permission to perform this action.'
+        },
+        operation_id='Product post endpoint',
+        operation_description='Endpoint utilizado para inserir um novo produto ao sistema.'
+    )
     def post(request):
         user = Utils().get_logged_user(request=request)
 

@@ -1,3 +1,4 @@
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import UpdateModelMixin
@@ -16,6 +17,15 @@ class BuyView(GenericAPIView, UpdateModelMixin):
     serializer_class = HistorySerializer
 
     @staticmethod
+    @swagger_auto_schema(
+        request_body=HistorySerializer,
+        responses={
+            '200': HistorySerializer,
+            '400': 'Saldo ou estoque do produto insuficiente!'
+        },
+        operation_id='Buy Endpoint',
+        operation_description='Endpoint utilizado para registrar a compra de um produto por um usuario.'
+    )
     def post(request):
 
         user = Utils().get_logged_user(request=request)

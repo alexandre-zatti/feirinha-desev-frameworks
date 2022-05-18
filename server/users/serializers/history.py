@@ -5,5 +5,6 @@ from ..models import History
 class HistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = History
-        fields = ['id', 'user', 'product', 'quantidade', 'total', 'quantidade', 'data_compra']
+        fields = ['id', 'user', 'product', 'quantidade', 'total', 'data_compra']
+
 

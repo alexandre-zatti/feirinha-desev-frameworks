@@ -1,5 +1,6 @@
 import datetime
 import jwt
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -11,6 +12,15 @@ from ..serializers import LoginSerializer
 class LoginView(APIView):
 
     @staticmethod
+    @swagger_auto_schema(
+        request_body=LoginSerializer,
+        responses={
+            '200': LoginSerializer,
+            '401': 'Nenhum usuario com essa matricula foi encontrado!'
+        },
+        operation_id='Login Endpoint',
+        operation_description='Endpoint utilizado para logar um usuario no sistema.'
+    )
     def post(request):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
