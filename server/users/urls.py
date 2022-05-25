@@ -3,6 +3,7 @@ from .views import RegisterView
 from .views import LoginView
 from .views import LogoutView
 from .views import UserView
+from .views import UsersView
 from .views import HistoryView
 from .views import BuyView
 
@@ -12,6 +13,7 @@ urlpatterns = [
     path('logout', LogoutView.as_view()),
     path('user/<int:matricula>/', UserView.as_view()),
     path('user', UserView.as_view()),
+    path('users', UsersView.as_view()),
     path('history/<int:user>/', HistoryView.as_view()),
     path('buy', BuyView.as_view()),
 ]
