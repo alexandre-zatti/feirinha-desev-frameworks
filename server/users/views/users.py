@@ -8,6 +8,7 @@ from ..utils import Utils
 
 
 class UsersView(GenericAPIView, UpdateModelMixin):
+    serializer_class = UserSerializer
 
     def get(self, request):
         Utils().get_logged_user(request=request)

@@ -12,10 +12,4 @@ RUN pip3 install --upgrade pip
 COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt
 
-COPY ./entrypoint.sh .
-RUN sed -i 's/\r$//g' /usr/src/server/entrypoint.sh
-RUN chmod +x /usr/src/server/entrypoint.sh
-
 COPY . .
-
-ENTRYPOINT ["sh", "/usr/src/server/entrypoint.sh"]
