@@ -6,7 +6,9 @@ services:
     image: zatti/feirinha-client
     container_name: feirinha-client
     volumes:
-      - ./client/:/usr/src/client/
+      - ./client/:/usr/src/client
+      - /usr/src/client/node_modules
+      - /usr/src/client/.next
     ports:
       - "3000:3000"
     env_file:

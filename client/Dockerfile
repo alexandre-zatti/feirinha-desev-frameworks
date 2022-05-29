@@ -1,11 +1,13 @@
-FROM node:13-alpine
+FROM node:alpine
 
 WORKDIR /usr/src/client
 
-ENV PATH /usr/src/client/node_modules/.bin:$PATH
+COPY package*.json /usr/src/client
 
-COPY package.json /usr/src/client/package.json
-RUN npm install --silent
-RUN npm install react-scripts@3.3.1 -g --silent
+RUN npm install
 
-CMD ["npm", "start"]
+COPY ./ /usr/src/client
+
+EXPOSE 3000
+
+ENTRYPOINT ["npm", "run", "dev"]
