@@ -3,7 +3,7 @@ import Styles from './ButtonDefault.module.css'
 export default function ButtonDefault(props) {
     return (
         <div className={Styles.wrapper}>
-            <button> {props.text} </button>
+            <button type="submit"> {props.text} </button>
         </div>
     )
 }

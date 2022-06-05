@@ -4,7 +4,7 @@ export default function InputNumber(props) {
     return (
         <div className={Styles.wrapper}>
             <label>{props.label}</label>
-            <input type="number"></input>
+            <input type="number" name={props.name} value={props.value} onChange={props.onChange}></input>
         </div>
     )
 }
