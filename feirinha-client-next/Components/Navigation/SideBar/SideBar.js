@@ -5,10 +5,28 @@ export default function SideBar(props) {
         <div className={Styles.wrapper}>
             <div className={Styles.iconContainer}>
                <a href="/"> <img src="/icons/dots.svg" alt="Dots" /></a>
-                <img src="/icons/page-counter.svg" alt="Page" className={Styles.pageCounter}/>
-                <img src="/icons/cart.svg" alt="Page"/>
-                <img src="/icons/deposit.svg" alt="Page"/>
-                <img src="/icons/qrCode.svg" alt="Page"/>
+                <div>
+                    <img src="/icons/page-counter.svg" alt="Page" className={Styles.pageCounter}/>
+                </div>
+
+                <a href="/store">
+                    <div className={Styles.iconDiv}>
+                        <img src="/icons/cart.svg" alt="Comprar"/>
+                    </div>
+                </a>
+
+                <a href="/deposit">
+                    <div className={Styles.iconDiv}>
+                        <img src="/icons/deposit.svg" alt="Depositar"/>
+                    </div>
+                </a>
+
+                <a href="/deposit">
+                    <div className={Styles.iconDiv}>
+                        <img src="/icons/qrCode.svg" alt="Depositar por qrCode"/>
+                    </div>
+                </a>
+
             </div>
 
         </div>

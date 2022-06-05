@@ -20,10 +20,10 @@ export default function Home() {
         <h1>Bem-Vindo!</h1>
         <form>
             <InputNumber label='Matricula'/>
-            <a href="/store/index"><ButtonDefault text='LOGIN'/></a>
+            <ButtonDefault text='LOGIN' link="/store"/>
         </form>
 
-        <span>Ainda não possui cadastro? <a href="/register">Cadastre-se</a></span>
+        <span>Ainda não possui cadastro? <a href="/register" className={styles.textLink}>Cadastre-se</a></span>
 
     </div>
 

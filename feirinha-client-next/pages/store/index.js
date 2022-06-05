@@ -17,7 +17,7 @@ export default function Store({products}) {
 
             <main className={styles.main}>
                 <div className={styles.topBar}>
-                    <img src="/logo.svg" alt="Feirinha GTI logo"/>
+                   <a href="/"> <img src="/logo.svg" alt="Feirinha GTI logo"/></a>
                     <h1 className={styles.title}>
                         Compras
                     </h1>

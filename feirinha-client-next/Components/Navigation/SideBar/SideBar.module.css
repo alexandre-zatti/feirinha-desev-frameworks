@@ -31,3 +31,15 @@
     height: 200px;
     margin-left: -45px;
 }
+
+.iconDiv {
+    padding: 20px;
+    width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconDiv:hover {
+    background: #648540;
+}
