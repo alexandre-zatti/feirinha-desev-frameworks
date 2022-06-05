@@ -1,0 +1,74 @@
+
+.container {
+    padding: 0;
+    display: flex;
+}
+
+.main {
+    margin-left: 153px;
+    min-height: 100vh;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+    font-family: 'Fredoka One', cursive;
+}
+
+.topBar {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.topBar h1 {
+    font-size: 40px;
+}
+.topBar h2 {
+    color: #2D4C0B;
+}
+
+.cardContainer {
+    margin-top: 30px;
+    height: 90%;
+    width: 85%;
+    display: flex;
+}
+
+.cardContainer li {
+    margin: 25px;
+}
+
+.card {
+    background: white;
+    height: 370px;
+    width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Lato', sans-serif;
+}
+
+.card:hover {
+    box-shadow: 5px 5px 9px #9FB94D;
+}
+
+.card img {
+    height: 200px;
+    width: 250px;
+}
+
+.card h1 {
+    font-weight: bold;
+    color: #7CB241;
+    margin-left: 20px;
+}
+
+.card h3 {
+    margin-left: 20px;
+}
