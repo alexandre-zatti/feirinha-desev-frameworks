@@ -18,17 +18,18 @@ export default function Home() {
         const sendForm = async (evt) => {
             console.log(matricula)
 
-            const response = await fetch('http://localhost:3000/api/login', {
+            const response = await fetch('http://localhost:8000/api/login', {
+                credentials: "include",
                 method: 'POST',
                 headers: {
-                    Accept: 'application/json',
+                    'Accept': 'application/json',
                     'Content-type': 'application/json'
                 },
                 body: JSON.stringify({matricula})
             })
             const json = await response.json()
             console.log(json)
-            // evt.preventDefault()
+            evt.preventDefault()
         }
 
   return (
