@@ -1,6 +1,20 @@
 version: '3.8'
 
 services:
+  client:
+    build: ./client
+    image: zatti/feirinha-client
+    container_name: feirinha-client
+    volumes:
+      - ./client/:/usr/src/client
+      - /usr/src/client/node_modules
+      - /usr/src/client/.next
+    env_file:
+      - ./.env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
 
   server:
     build: ./server
