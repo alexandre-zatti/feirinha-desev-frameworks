@@ -1,9 +1,20 @@
 import Head from 'next/head'
 import SideBar from "../../Components/Navigation/SideBar/SideBar";
 import styles from '../../styles/Store.module.css'
+import {useEffect, useState} from "react";
 
 
-export default function Store({products}) {
+export default function Store() {
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/api/product', {credentials: "include", mode: "cors"})
+          .then((res) => res.json())
+          .then((data) => {
+            setProducts(data)
+          })
+    }, [])
 
     return (
         <div className={styles.container}>
@@ -41,86 +52,20 @@ export default function Store({products}) {
     )
 }
 
-export async function getServerSideProps(){
-    // axios.defaults.withCredentials = true
-    // axios.get(`${APIbase}/product`,{
-    //     withCredentials: true
-    // })
-    //     .then(function(response){
-    //         console.log(response.data);
-    //     })
-    //     .catch(function(error){
-    //         console.log(error);
-    //     });
-
-    const data = [
-        {
-            "id": 1,
-            "name": "Coca Cola 2l",
-            "quantidade": 1,
-            "preco": 10.50,
-            "thumbnail": "/imgs/ItemTeste.png"
-        },
-        {
-            "id": 2,
-            "name": "Biscoito Oreo",
-            "quantidade": 2,
-            "preco": 2.99,
-            "thumbnail": "/imgs/ItemTeste.png"
-        },
-        {
-            "id": 2,
-            "name": "Biscoito Oreo",
-            "quantidade": 2,
-            "preco": 2.99,
-            "thumbnail": "/imgs/ItemTeste.png"
-
-        },
-        {
-            "id": 2,
-            "name": "Biscoito Oreo",
-            "quantidade": 2,
-            "preco": 2.99,
-            "thumbnail": "/imgs/ItemTeste.png"
-
-        },
-        {
-            "id": 2,
-            "name": "Biscoito Oreo",
-            "quantidade": 2,
-            "preco": 2.99,
-            "thumbnail": "/imgs/ItemTeste.png"
-
-        },
-        {
-            "id": 2,
-            "name": "Biscoito Oreo",
-            "quantidade": 2,
-            "preco": 2.99,
-            "thumbnail": "/imgs/ItemTeste.png"
-
-        },
-        {
-            "id": 2,
-            "name": "Biscoito Oreo",
-            "quantidade": 2,
-            "preco": 2.99,
-            "thumbnail": "/imgs/ItemTeste.png"
-
-        },
-        {
-            "id": 2,
-            "name": "Biscoito Oreo",
-            "quantidade": 2,
-            "preco": 2.99,
-            "thumbnail": "/imgs/ItemTeste.png"
-
-        }
-    ];
-
-    return {
-        props: {
-        products: data
-        }
-    };
-}
+// export function getServerSideProps(){
+//
+//     return {
+//         props:{
+//             products: [
+//                 {
+//                     "id": 1,
+//                     "name": "Coca Cola 2l",
+//                     "quantidade": 1,
+//                     "preco": 10.50,
+//                     "thumbnail": "/imgs/ItemTeste.png"
+//                 }
+//             ]
+//         }
+//     }
+//
+// }

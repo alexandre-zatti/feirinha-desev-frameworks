@@ -16,9 +16,7 @@ export default function Home() {
         }
 
         const sendForm = async (evt) => {
-            console.log(matricula)
-
-            const response = await fetch('http://localhost:8000/api/login', {
+            await fetch('http://localhost:8000/api/login', {
                 credentials: "include",
                 method: 'POST',
                 headers: {
@@ -27,9 +25,6 @@ export default function Home() {
                 },
                 body: JSON.stringify({matricula})
             })
-            const json = await response.json()
-            console.log(json)
-            evt.preventDefault()
         }
 
   return (
