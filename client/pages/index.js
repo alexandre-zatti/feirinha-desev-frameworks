@@ -1,14 +1,18 @@
 import Head from 'next/head'
 import InputNumber from "../Components/Inputs/Number/InputNumber";
 import ButtonDefault from "../Components/Buttons/Default/ButtonDefault";
+import { useRouter } from "next/router";
+import {Error} from "../Components/Notifications/notify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Background from '../public/imgs/bg1.png'
 
 import styles from '../styles/Login.module.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export default function Home() {
-
+    const router = useRouter()
     const [matricula, setMatricula] = useState('')
 
         const onChange = (evt) => {
@@ -16,7 +20,7 @@ export default function Home() {
         }
 
         const sendForm = async (evt) => {
-            console.log(matricula)
+        evt.preventDefault()
 
             const response = await fetch('http://localhost:8000/api/login', {
                 credentials: "include",
@@ -28,8 +32,11 @@ export default function Home() {
                 body: JSON.stringify({matricula})
             })
             const json = await response.json()
-            console.log(json)
-            evt.preventDefault()
+            if(response.status == 200) {
+                router.push('/store')
+            }else{
+                Error('Nenhum usuario com essa matricula foi encontrado!')
+            }
         }
 
   return (
@@ -40,6 +47,7 @@ export default function Home() {
         <meta name="feirinha" content="Pagina da feira" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+        <ToastContainer />
 
     <div className={styles.formWrap}>
         <h1>Bem-Vindo!</h1>

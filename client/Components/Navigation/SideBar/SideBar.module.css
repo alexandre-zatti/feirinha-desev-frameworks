@@ -39,6 +39,14 @@
     justify-content: center;
     align-items: center;
 }
+.iconDivActive {
+    padding: 20px;
+    width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3f5d1a;
+}
 
 .iconDiv:hover {
     background: #648540;

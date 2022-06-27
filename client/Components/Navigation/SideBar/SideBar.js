@@ -1,6 +1,40 @@
 import Styles from './SideBar.module.css'
 
 export default function SideBar(props) {
+
+
+    function renderStore () {
+        if (props.active == 'store') {
+            return <a href="/store">
+                <div className={Styles.iconDivActive}>
+                    <img src="/icons/cart.svg" alt="Comprar"/>
+                </div>
+            </a>
+        } else {
+            return <a href="/store">
+                <div className={Styles.iconDiv}>
+                    <img src="/icons/cart.svg" alt="Comprar"/>
+                </div>
+            </a>
+        }
+    }
+
+    function renderDeposit () {
+        if (props.active == 'deposit') {
+            return <a href="/deposit">
+                <div className={Styles.iconDivActive}>
+                    <img src="/icons/deposit.svg" alt="Depositar"/>
+                </div>
+            </a>
+        } else {
+            return <a href="/deposit">
+                <div className={Styles.iconDiv}>
+                    <img src="/icons/deposit.svg" alt="Depositar"/>
+                </div>
+            </a>
+        }
+    }
+
     return (
         <div className={Styles.wrapper}>
             <div className={Styles.iconContainer}>
@@ -9,21 +43,12 @@ export default function SideBar(props) {
                     <img src="/icons/page-counter.svg" alt="Page" className={Styles.pageCounter}/>
                 </div>
 
-                <a href="/store">
-                    <div className={Styles.iconDiv}>
-                        <img src="/icons/cart.svg" alt="Comprar"/>
-                    </div>
-                </a>
+                {renderStore()}
+                {renderDeposit()}
 
-                <a href="/deposit">
+                <a href="/logout">
                     <div className={Styles.iconDiv}>
-                        <img src="/icons/deposit.svg" alt="Depositar"/>
-                    </div>
-                </a>
-
-                <a href="/deposit">
-                    <div className={Styles.iconDiv}>
-                        <img src="/icons/qrCode.svg" alt="Depositar por qrCode"/>
+                        <img src="/icons/logout.svg" alt="Sair"/>
                     </div>
                 </a>
 
