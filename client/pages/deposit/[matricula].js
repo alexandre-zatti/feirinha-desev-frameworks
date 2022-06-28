@@ -50,7 +50,7 @@ export default function Deposit() {
         const data = await response.json()
         if(response.status == 200) {
             setSaldo(data.saldo)
-            Success('Depósito realizado com Sucesso! Novo saldo: R$ ' + data.saldo)
+            Success('Depósito realizado com Sucesso! Novo saldo: R$ ' + parseFloat(data.saldo).toFixed(2))
             setDepositValue('')
         }else{
             Error('Erro ao realizar depósito, tente novamente mais tarde.')

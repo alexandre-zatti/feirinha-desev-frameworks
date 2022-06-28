@@ -110,7 +110,6 @@ export default function Store() {
                                 <h3>{item.name}</h3>
                                 <h1>R$ {item.preco}</h1>
                                 <button onClick={() => buyItem(item.id, item.preco)}>Comprar</button>
-
                             </li>
                         ))}
 
