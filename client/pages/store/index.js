@@ -3,16 +3,36 @@ import SideBar from "../../Components/Navigation/SideBar/SideBar";
 import styles from '../../styles/Store.module.css'
 import {Success, Error} from "../../Components/Notifications/notify";
 import {useEffect, useState} from "react";
+import ButtonDefault from "../../Components/Buttons/Default/ButtonDefault";
 import moment from "moment";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {useRouter} from "next/router";
 
 export default function Store() {
+
+    const router = useRouter()
 
     const [products, setProducts] = useState([]);
     const [user, setUser] = useState([]);
     const [saldo, setSaldo] = useState([]);
+
+    async function getProducts(){
+        const response = await fetch('http://localhost:8000/api/product', {
+            credentials: "include",
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+        })
+        const data = await response.json()
+        if(response.status == 200) {
+             setProducts(data)
+        }else{
+            router.push('/error')
+        }
+    }
 
     function buyItem(id, price) {
         let buyList = {
@@ -44,11 +64,8 @@ export default function Store() {
     }
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/product', {credentials: "include", mode: "cors"})
-            .then((res) => res.json())
-            .then((data) => {
-                setProducts(data)
-            })
+        getProducts();
+
         fetch('http://localhost:8000/api/user', {credentials: "include", mode: "cors"})
             .then((res) => res.json())
             .then((data) => {
@@ -66,7 +83,7 @@ export default function Store() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <SideBar active="store"/>
+            <SideBar active="store" matricula={user.matricula}/>
             <ToastContainer />
 
             <main className={styles.main}>

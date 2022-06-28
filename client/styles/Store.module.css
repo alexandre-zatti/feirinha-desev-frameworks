@@ -45,7 +45,7 @@
 
 .card {
     background: white;
-    height: 370px;
+    height: 400px;
     width: 300px;
     padding: 20px;
     border-radius: 15px;
@@ -71,4 +71,22 @@
 
 .card h3 {
     margin-left: 20px;
+}
+
+.card button {
+    background-color: #2D4C0B;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 4px;
+    padding: 9px 9px;
+    cursor: pointer;
+
+    font-size: 20px;
+    width: 100%;
+
+    font-family: 'Fredoka One', cursive;
+
 }

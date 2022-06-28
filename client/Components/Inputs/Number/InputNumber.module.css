@@ -17,7 +17,7 @@
 .wrapper input {
     height: 4rem;
     width: 600px;
-    border: none;
+    border: #88BA52 2px solid;
     border-radius: 20rem;
 
     font-size: 20px;

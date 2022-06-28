@@ -13,6 +13,7 @@ import {useEffect, useState} from "react";
 
 export default function Home() {
     const router = useRouter()
+
     const [matricula, setMatricula] = useState('')
 
         const onChange = (evt) => {

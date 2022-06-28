@@ -20,14 +20,16 @@ export default function SideBar(props) {
     }
 
     function renderDeposit () {
+        let link = "/deposit/" + props.matricula + "/";
+
         if (props.active == 'deposit') {
-            return <a href="/deposit">
+            return <a href={link}>
                 <div className={Styles.iconDivActive}>
                     <img src="/icons/deposit.svg" alt="Depositar"/>
                 </div>
             </a>
         } else {
-            return <a href="/deposit">
+            return <a href={link}>
                 <div className={Styles.iconDiv}>
                     <img src="/icons/deposit.svg" alt="Depositar"/>
                 </div>

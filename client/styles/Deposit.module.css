@@ -1,0 +1,52 @@
+
+.container {
+    padding: 0;
+    display: flex;
+}
+
+.main {
+    margin-left: 153px;
+    min-height: 100vh;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+
+    font-family: 'Fredoka One', cursive;
+}
+
+.topBar {
+    margin-top: -35px;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.main label {
+    color: #88BA52;
+}
+
+.topBar h1 {
+    font-size: 40px;
+}
+.topBar h2 {
+    color: #2D4C0B;
+}
+
+.cardContainer {
+    margin-top: 30px;
+    display: flex;
+}
+
+
+.pixContainer {
+    color: #2D4C0B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
