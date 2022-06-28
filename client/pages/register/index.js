@@ -65,8 +65,8 @@ export default function Register() {
             <div className={styles.formWrap}>
                 <h1>Cadastro</h1>
                 <form onSubmit={sendForm} method="post">
-                    <InputNumber label='Digite sua matricula' name="matricula" onChange={onChange} />
-                    <InputText label='Digite seu Nome' name="username" value={username} onChange={onChange} />
+                    <InputNumber label='Matricula' name="matricula" onChange={onChange} />
+                    <InputText label='Nome' name="username" value={username} onChange={onChange} />
                     <a href="/store/index"><ButtonDefault text='CADASTRAR-SE'/></a>
                 </form>
 
