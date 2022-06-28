@@ -34,7 +34,7 @@
     font-size: 40px;
 }
 .topBar h2 {
-    color: #2D4C0B;
+    color: #88BA52;
 }
 
 .cardContainer {
@@ -44,7 +44,7 @@
 
 
 .pixContainer {
-    color: #2D4C0B;
+    color: #88BA52;
     display: flex;
     flex-direction: column;
     justify-content: center;
