@@ -1,0 +1,53 @@
+
+.wrapper {
+    position: fixed;
+    padding: 4rem 0;
+    background-color: #88BA52;
+    color: white;
+    width: 125px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.iconContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.iconContainer img {
+    height: 50px;
+    width: 50px;
+}
+
+.iconContainer .pageCounter {
+    width: 200px;
+    height: 200px;
+    margin-left: -45px;
+}
+
+.iconDiv {
+    padding: 20px;
+    width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconDivActive {
+    padding: 20px;
+    width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3f5d1a;
+}
+
+.iconDiv:hover {
+    background: #648540;
+}

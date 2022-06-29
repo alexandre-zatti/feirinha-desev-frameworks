@@ -1,0 +1,25 @@
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper label {
+    margin-right: auto;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.wrapper input {
+    height: 4rem;
+    width: 600px;
+    border: #88BA52 2px solid;
+    border-radius: 20rem;
+
+    font-size: 20px;
+    padding: 20px;
+}

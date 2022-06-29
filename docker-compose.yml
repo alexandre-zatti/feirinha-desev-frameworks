@@ -9,12 +9,13 @@ services:
       - ./client/:/usr/src/client
       - /usr/src/client/node_modules
       - /usr/src/client/.next
-    ports:
-      - "3000:3000"
     env_file:
       - ./.env
+    ports:
+      - "3000:3000"
     depends_on:
       - server
+
   server:
     build: ./server
     image: zatti/feirinha-server

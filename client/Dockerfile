@@ -1,13 +1,21 @@
-FROM node
+FROM node:12
 
+ENV PORT 3000
+
+# Create app directory
+RUN mkdir -p /usr/src/client
 WORKDIR /usr/src/client
 
-COPY package*.json /usr/src/client
-
+# Installing dependencies
+COPY package*.json /usr/src/client/
 RUN npm install
 
-COPY ./ /usr/src/client
+# Copying source files
+COPY . /usr/src/client
 
+# Building app
+RUN npm run build
 EXPOSE 3000
 
-ENTRYPOINT ["npm", "run", "dev"]
+# Running the app
+CMD "npm" "run" "dev"

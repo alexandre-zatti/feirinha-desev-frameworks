@@ -1,0 +1,1 @@
+export const APIbase = 'http://localhost:8000/api'
