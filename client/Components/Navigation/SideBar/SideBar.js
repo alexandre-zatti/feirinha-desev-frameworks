@@ -37,16 +37,36 @@ export default function SideBar(props) {
         }
     }
 
+    function renderAddProd () {
+        if(props.feirante == true) {
+            if (props.active == 'addProd') {
+                return <a href="/product/add">
+                    <div className={Styles.iconDivActive}>
+                        <img src="/icons/add.svg" alt="Adicionar Produto"/>
+                    </div>
+                </a>
+            } else {
+                return <a href="/product/add">
+                    <div className={Styles.iconDiv}>
+                        <img src="/icons/add.svg" alt="Adicionar Produto"/>
+                    </div>
+                </a>
+            }
+        }
+        return;
+    }
+
     return (
         <div className={Styles.wrapper}>
             <div className={Styles.iconContainer}>
-               <a href="/"> <img src="/icons/dots.svg" alt="Dots" /></a>
+                <img src="/icons/dots.svg" alt="Dots" />
                 <div>
                     <img src="/icons/page-counter.svg" alt="Page" className={Styles.pageCounter}/>
                 </div>
 
                 {renderStore()}
                 {renderDeposit()}
+                {renderAddProd()}
 
                 <a href="/logout">
                     <div className={Styles.iconDiv}>

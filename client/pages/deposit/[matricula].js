@@ -76,7 +76,7 @@ export default function Deposit() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <SideBar active="deposit" matricula={matricula}/>
+            <SideBar active="deposit" matricula={matricula} feirante={user.feirante}/>
             <ToastContainer />
 
             <main className={styles.main}>

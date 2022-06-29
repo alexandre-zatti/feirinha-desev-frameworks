@@ -83,7 +83,7 @@ export default function Store() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <SideBar active="store" matricula={user.matricula}/>
+            <SideBar active="store" matricula={user.matricula} feirante={user.feirante}/>
             <ToastContainer />
 
             <main className={styles.main}>
